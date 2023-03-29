@@ -26,6 +26,8 @@ class ListViewModel(application: Application): AndroidViewModel(application)
 
 
     fun refresh() {
+
+
         val student1 =
             Student("16055","Nonie","1998/03/28","5718444778","http://dummyimage.com/75x100.jpg/cc0000/ffffff")
 
@@ -58,7 +60,16 @@ class ListViewModel(application: Application): AndroidViewModel(application)
                 studentLoadErrorLD.value = true
                 loadingLD.value = false
             })
+//        tag itu kek idnya
+        stringRequest.tag = TAG
+        queue?.add(stringRequest)
 
 
     }
-}
+
+     override fun onCleared() {
+         super.onCleared()
+         queue?.cancelAll(TAG)
+     }
+
+ }

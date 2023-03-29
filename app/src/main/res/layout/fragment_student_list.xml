@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.StudentListFragment">
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.StudentListFragment">
@@ -39,8 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Error while loading data"
-            app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-            app:layout_constraintEnd_toEndOf="@+id/recyclerView"
+            app:layout_constraintBottom_toBottomOf="@+id/recView"
+            app:layout_constraintEnd_toEndOf="@+id/recView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

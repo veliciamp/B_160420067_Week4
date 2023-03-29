@@ -7,7 +7,7 @@ data class Student(
     @SerializedName("student_name")
     val name:String?,
     @SerializedName("birth_of_date")
-    val bod:String?,
+    val dob:String?,
     val phone:String?,
     @SerializedName("photo_url")
     val photoUrl:String
