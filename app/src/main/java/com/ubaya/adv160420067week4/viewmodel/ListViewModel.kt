@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.ubaya.adv160420067week4.model.Student
 
 class ListViewModel:ViewModel() {
+//    observable
     val studentsLD = MutableLiveData<ArrayList<Student>>()
     val studentLoadErrorLD = MutableLiveData<Boolean>()
     val loadingLD = MutableLiveData<Boolean>()
