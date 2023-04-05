@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.ubaya.adv160420067week4.R
 import com.ubaya.adv160420067week4.view.StudentListAdapter
 import com.ubaya.adv160420067week4.viewmodel.ListViewModel
@@ -36,6 +37,17 @@ class StudentListFragment : Fragment() {
         recView?.layoutManager = LinearLayoutManager(context)
         recView?.adapter = studentListAdapter
         observeViewModel()
+        val txtError = view?.findViewById<TextView>(R.id.txtError)
+        val progressLoad = view?.findViewById<ProgressBar>(R.id.progressLoad)
+        val refreshLayout = view?.findViewById<SwipeRefreshLayout>(R.id.refreshLayout)
+        refreshLayout.setOnRefreshListener {
+            recView.visibility = View.GONE
+            txtError.visibility = View.GONE
+            progressLoad.visibility = View.VISIBLE
+            viewModel.refresh()
+            refreshLayout.isRefreshing = false
+        }
+
     }
 
     fun observeViewModel() {
